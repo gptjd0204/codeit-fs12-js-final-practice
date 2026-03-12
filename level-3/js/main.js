@@ -1,6 +1,6 @@
 import { createExpense, updateExpense } from "./api.js";
 import { renderExpenseList } from "./render/list.js";
-import { dateSort } from "./utils.js";
+import { sortList } from "./utils.js";
 
 export const expenseForm = document.getElementById("expense-form");
 export const dateInput = document.getElementById("date");
@@ -8,9 +8,10 @@ export const categoryInput = document.getElementById("category");
 export const descriptionInput = document.getElementById("description");
 export const amountInput = document.getElementById("amount");
 export const submitBtn = document.getElementById("submit-btn");
-export const amountSort = document.querySelector("#amount-sort");
-export const recentSortBtn = document.querySelector("#recent-sort");
-export const oldSortBtn = document.querySelector("#old-sort");
+const recentSortBtn = document.querySelector("#recent-sort");
+const oldSortBtn = document.querySelector("#old-sort");
+const amountDescBtn = document.querySelector("#amount-desc");
+const amountAscBtn = document.querySelector("#amount-asc");
 
 // 지출 내역 추가 및 수정 버튼 이벤트 리스너
 expenseForm.addEventListener("submit", function (e) {
@@ -41,16 +42,40 @@ recentSortBtn.addEventListener("click", function (e) {
   e.preventDefault();
   this.classList.add("active");
   oldSortBtn.classList.remove("active");
+  amountAscBtn.classList.remove("active");
+  amountDescBtn.classList.remove("active");
 
-  renderExpenseList(dateSort("recent"));
+  renderExpenseList(sortList("recent"));
 });
 
 oldSortBtn.addEventListener("click", function (e) {
   e.preventDefault();
   this.classList.add("active");
   recentSortBtn.classList.remove("active");
+  amountAscBtn.classList.remove("active");
+  amountDescBtn.classList.remove("active");
 
-  renderExpenseList(dateSort("old"));
+  renderExpenseList(sortList("old"));
+});
+
+amountDescBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  this.classList.add("active");
+  amountAscBtn.classList.remove("active");
+  recentSortBtn.classList.remove("active");
+  oldSortBtn.classList.remove("active");
+
+  renderExpenseList(sortList("amountDesc"));
+});
+
+amountAscBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  this.classList.add("active");
+  amountDescBtn.classList.remove("active");
+  recentSortBtn.classList.remove("active");
+  oldSortBtn.classList.remove("active");
+
+  renderExpenseList(sortList("amountAsc"));
 });
 
 // 지출 목록 출력
