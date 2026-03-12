@@ -1,39 +1,60 @@
 {
   "expenses": [
     {
-      "id": 1,
       "date": "2024-02-01",
       "category": "식비",
       "description": "점심 식사",
-      "amount": 12000
+      "amount": 12000,
+      "id": 1
     },
     {
-      "id": 2,
       "date": "2025-05-10",
       "category": "교통",
       "description": "잠실 약속",
-      "amount": 5000
+      "amount": 5000,
+      "id": 2
     },
     {
-      "id": 3,
       "date": "2024-04-24",
       "category": "쇼핑",
       "description": "아우터 구매",
-      "amount": 89000
+      "amount": 89000,
+      "id": 3
     },
     {
-      "id": 4,
       "date": "2024-04-24",
       "category": "문화",
       "description": "영화 관람",
-      "amount": 12000
+      "amount": 12000,
+      "id": 4
     },
     {
-      "id": 5,
       "date": "2024-04-24",
       "category": "기타",
       "description": "미용실",
-      "amount": 64000
+      "amount": 64000,
+      "id": 5
+    },
+    {
+      "date": "2026-03-12",
+      "category": "food",
+      "description": "저녁 식사",
+      "amount": "20000",
+      "id": 6
+    },
+    {
+      "date": "2026-03-02",
+      "category": "교통",
+      "description": "위워크 방문",
+      "amount": "5000",
+      "id": 7
+    },
+    {
+      "date": "2026-03-03",
+      "category": "문화",
+      "description": "영화 관람",
+      "amount": "20000",
+      "id": 8
     }
   ]
 }
