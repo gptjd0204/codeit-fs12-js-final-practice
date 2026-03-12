@@ -6,6 +6,7 @@ export async function renderExpenseList() {
   // error: 계속 error가 발생했는데 async / await을 사용하니 오류 발생 X
   // import로 불러온 getExpenseList를 사용할때 async / await을 사용해야함
   const expensesList = await getExpenseList();
+  expensesListEl.innerHTML = "";
 
   expensesList.forEach((expense) => {
     const tr = document.createElement("tr");
