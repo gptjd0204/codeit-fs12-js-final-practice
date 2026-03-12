@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DDOSANNI - 또샀니</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <h1>DDOSANNI</h1>
+        <p>또 샀니?😭 나만의 지출 관리 앱</p>
+      </header>
+
+      <section class="input-section">
+        <form id="spending-form">
+          <input type="date" id="date" required />
+          <select id="category" required>
+            <option value="">카테고리</option>
+            <option value="food">식비</option>
+            <option value="traffic">교통</option>
+            <option value="shopping">쇼핑</option>
+            <option value="culture">문화</option>
+            <option value="others">기타</option>
+          </select>
+          <input type="text" id="description" placeholder="설명" required />
+          <input type="text" id="amount" placeholder="금액" min="0" required />
+          <button type="submit" id="submit-btn">추가</button>
+        </form>
+      </section>
+
+      <section class="total-section">
+        <div class="total-container">
+          <span>지출 총합:</span>
+          <span id="total-amount">0</span>
+        </div>
+        <table class="expense-table">
+          <thead>
+            <tr>
+              <th>날짜</th>
+              <th>카테고리</th>
+              <th>설명</th>
+              <th>금액</th>
+              <th>수정</th>
+              <th>삭제</th>
+            </tr>
+          </thead>
+          <tbody id="expense-list"></tbody>
+        </table>
+      </section>
+    </div>
+  </body>
+</html>
