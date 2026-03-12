@@ -1,4 +1,5 @@
-import { getExpenseList } from "../api.js";
+import { deleteExpense, getExpenseList } from "../api.js";
+import * as main from "../main.js";
 
 const expensesListEl = document.querySelector("#expenses-list");
 
@@ -21,9 +22,28 @@ export async function renderExpenseList() {
       dataTh.textContent = expenseData[data];
       tr.appendChild(dataTh);
     }
+
     const editTh = document.createElement("th");
     const deleteTh = document.createElement("th");
+    // 수정 버튼 이벤트 리스너
+    editBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      // 입력란에 수정할 지출 내역 표시
+      main.dateInputEl.value = expense.date;
+      main.categoryInputEl.value = expense.category;
+      main.descriptionInputEl.value = expense.description;
+      main.amountInputEl.value = expense.amount;
+      // 수정할 지출 내역 id 설정
+      main.submitBtn.dataset.id = id;
+      main.submitBtn.textContent = "수정";
+      main.submitBtn.classList.add("patch");
+    });
 
+    // 삭제 버튼 이벤트 리스너
+    deleteBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      deleteExpense(id);
+    });
     editTh.appendChild(editBtn);
     deleteTh.appendChild(deleteBtn);
 

@@ -52,7 +52,7 @@ export async function updateExpense(id, date, category, description, amount) {
   };
 
   try {
-    const response = await fetch(`${BASE_URL}/:${id}`, {
+    const response = await fetch(`${BASE_URL}/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -69,7 +69,7 @@ export async function updateExpense(id, date, category, description, amount) {
 // DELETE : 지출 내용 삭제
 export async function deleteExpense(id) {
   try {
-    const response = await fetch(`${BASE_URL}/:${id}`, {
+    const response = await fetch(`${BASE_URL}/${id}`, {
       method: "DELETE",
     });
 
