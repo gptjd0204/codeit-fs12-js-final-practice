@@ -1,20 +1,24 @@
 import { createExpense, updateExpense } from "./api.js";
 import { renderExpenseList } from "./render/list.js";
+import { dateSort } from "./utils.js";
 
-export const expenseFormEl = document.getElementById("expense-form");
-export const dateInputEl = document.getElementById("date");
-export const categoryInputEl = document.getElementById("category");
-export const descriptionInputEl = document.getElementById("description");
-export const amountInputEl = document.getElementById("amount");
+export const expenseForm = document.getElementById("expense-form");
+export const dateInput = document.getElementById("date");
+export const categoryInput = document.getElementById("category");
+export const descriptionInput = document.getElementById("description");
+export const amountInput = document.getElementById("amount");
 export const submitBtn = document.getElementById("submit-btn");
+export const amountSort = document.querySelector("#amount-sort");
+export const recentSortBtn = document.querySelector("#recent-sort");
+export const oldSortBtn = document.querySelector("#old-sort");
 
 // 지출 내역 추가 및 수정 버튼 이벤트 리스너
-expenseFormEl.addEventListener("submit", function (e) {
+expenseForm.addEventListener("submit", function (e) {
   e.preventDefault();
-  const date = dateInputEl.value;
-  const category = categoryInputEl.value;
-  const description = descriptionInputEl.value.trim();
-  const amount = amountInputEl.value.trim();
+  const date = dateInput.value;
+  const category = categoryInput.value;
+  const description = descriptionInput.value.trim();
+  const amount = amountInput.value.trim();
   if (!(date && category && description && amount)) {
     return;
   }
@@ -27,10 +31,26 @@ expenseFormEl.addEventListener("submit", function (e) {
     createExpense(date, category, description, amount);
     console.log("지출 내역 추가 성공!");
   }
-  dateInputEl.value = "";
-  categoryInputEl.value = "";
-  descriptionInputEl.value = "";
-  amountInputEl.value = "";
+  dateInput.value = "";
+  categoryInput.value = "";
+  descriptionInput.value = "";
+  amountInput.value = "";
+});
+
+recentSortBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  this.classList.add("active");
+  oldSortBtn.classList.remove("active");
+
+  renderExpenseList(dateSort("recent"));
+});
+
+oldSortBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  this.classList.add("active");
+  recentSortBtn.classList.remove("active");
+
+  renderExpenseList(dateSort("old"));
 });
 
 // 지출 목록 출력

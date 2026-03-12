@@ -36,19 +36,25 @@
           <span>지출 총합:</span>
           <span id="total-amount">0</span>
         </div>
-        <table class="expense-table">
-          <thead>
-            <tr>
-              <th>날짜</th>
-              <th>카테고리</th>
-              <th>설명</th>
-              <th>금액</th>
-              <th>수정</th>
-              <th>삭제</th>
-            </tr>
-          </thead>
-          <tbody id="expenses-list"></tbody>
-        </table>
+        <div class="list-container">
+          <div class="date-sort">
+            <span id="recent-sort">최신순</span>
+            <span id="old-sort">오래된순</span>
+          </div>
+          <table class="expense-table">
+            <thead>
+              <tr>
+                <th>날짜</th>
+                <th>카테고리</th>
+                <th>설명</th>
+                <th id="amount-sort">금액</th>
+                <th>수정</th>
+                <th>삭제</th>
+              </tr>
+            </thead>
+            <tbody id="expenses-list"></tbody>
+          </table>
+        </div>
       </section>
     </div>
     <!-- <script type="module" src="./js/api.js"></script> -->

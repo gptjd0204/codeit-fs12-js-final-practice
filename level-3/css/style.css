@@ -42,3 +42,24 @@ h1 {
   display: flex;
   justify-content: space-between;
 }
+
+.list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.date-sort {
+  display: flex;
+  gap: 10px;
+  color: rgb(158, 158, 158);
+}
+
+.date-sort span:hover {
+  cursor: pointer;
+  font-weight: 600;
+  color: rgb(255, 0, 0);
+}
+.date-sort span.active {
+  color: rgb(255, 0, 0);
+}

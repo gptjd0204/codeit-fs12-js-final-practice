@@ -36,17 +36,10 @@
       "id": 6
     },
     {
-      "date": "2024-04-08",
+      "date": "2026-03-15",
       "category": "교통",
-      "description": "연극 관람22",
-      "amount": "400000",
-      "id": 7
-    },
-    {
-      "date": "2026-03-25",
-      "category": "교통",
-      "description": "테스트",
-      "amount": "123000",
+      "description": "수정 수정",
+      "amount": "110000",
       "id": 8
     }
   ]
