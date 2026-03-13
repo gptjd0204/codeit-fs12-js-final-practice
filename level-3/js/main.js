@@ -1,7 +1,7 @@
 import { createExpense, updateExpense } from "./api.js";
 import { renderExpenseList } from "./render/list.js";
 import { renderStats } from "./render/stats.js";
-import { sortList } from "./utils.js";
+import { getSortList } from "./utils.js";
 
 export const expenseForm = document.getElementById("expense-form");
 export const dateInput = document.getElementById("date");
@@ -55,7 +55,7 @@ recentSortBtn.addEventListener("click", function (e) {
   activeDefault();
   this.classList.add("active");
 
-  renderExpenseList(sortList(categoryFilterSelect.value, "recent"));
+  renderExpenseList(getSortList(categoryFilterSelect.value, "recent"));
 });
 
 // 오래된순 정렬 버튼 이벤트 리스너
@@ -64,7 +64,7 @@ oldSortBtn.addEventListener("click", function (e) {
   activeDefault();
   this.classList.add("active");
 
-  renderExpenseList(sortList(categoryFilterSelect.value, "old"));
+  renderExpenseList(getSortList(categoryFilterSelect.value, "old"));
 });
 
 // 높은금액순 정렬 버튼 이벤트 리스너
@@ -73,7 +73,7 @@ amountDescBtn.addEventListener("click", function (e) {
   activeDefault();
   this.classList.add("active");
 
-  renderExpenseList(sortList(categoryFilterSelect.value, "amountDesc"));
+  renderExpenseList(getSortList(categoryFilterSelect.value, "amountDesc"));
 });
 
 // 낮은금액순 정렬 버튼 이벤트 리스너
@@ -82,7 +82,7 @@ amountAscBtn.addEventListener("click", function (e) {
   activeDefault();
   this.classList.add("active");
 
-  renderExpenseList(sortList(categoryFilterSelect.value, "amountAsc"));
+  renderExpenseList(getSortList(categoryFilterSelect.value, "amountAsc"));
 });
 
 // 카테고리 필터 이벤트 리스너
@@ -90,7 +90,7 @@ categoryFilterSelect.addEventListener("change", function (e) {
   e.preventDefault();
   activeDefault();
 
-  renderExpenseList(sortList(this.value));
+  renderExpenseList(getSortList(this.value));
 });
 
 // 지출 목록 출력

@@ -1,10 +1,10 @@
-import { getCategoryAmount, totalAmount } from "../utils.js";
+import { getCategoryAmount, getTotalAmount } from "../utils.js";
 
 const totalAmountVal = document.querySelector("#total-amount");
 const categoryTotalList = document.querySelector("#category-total-list");
 
 export async function renderStats() {
-  const total = await totalAmount();
+  const total = await getTotalAmount();
   const categoryTotal = await getCategoryAmount();
 
   totalAmountVal.textContent = `${total}원`;

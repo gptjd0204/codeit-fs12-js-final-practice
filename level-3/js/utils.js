@@ -2,7 +2,7 @@ import { getExpenseList } from "./api.js";
 
 // 카테고리별 필터 및
 // 최신순 / 오래된순 / 높은금액순 / 낮은금액순 정렬
-export async function sortList(category, type) {
+export async function getSortList(category, type) {
   const expenseList = await getExpenseList();
   if (!expenseList) {
     console.error("목록 조회에 실패했습니다!");
@@ -55,7 +55,7 @@ export async function sortList(category, type) {
 }
 
 // 총합 계산
-export async function totalAmount() {
+export async function getTotalAmount() {
   const expenseList = await getExpenseList();
   if (!expenseList) {
     console.error("목록 조회에 실패했습니다!");
