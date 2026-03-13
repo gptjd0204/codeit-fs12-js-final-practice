@@ -78,3 +78,8 @@ h1 {
 #category-filter {
   max-width: 100px;
 }
+
+#total-amount {
+  font-weight: 500;
+  color: rgb(216, 23, 23);
+}

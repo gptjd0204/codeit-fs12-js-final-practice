@@ -1,6 +1,7 @@
 import { createExpense, updateExpense } from "./api.js";
 import { renderExpenseList } from "./render/list.js";
-import { categoryFilter, sortList } from "./utils.js";
+import { renderStats } from "./render/stats.js";
+import { sortList } from "./utils.js";
 
 export const expenseForm = document.getElementById("expense-form");
 export const dateInput = document.getElementById("date");
@@ -92,4 +93,6 @@ categoryFilterSelect.addEventListener("change", function (e) {
 });
 
 // 지출 목록 출력
+
 renderExpenseList();
+renderStats();

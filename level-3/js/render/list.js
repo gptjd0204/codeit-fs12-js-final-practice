@@ -16,7 +16,7 @@ export async function renderExpenseList(sort) {
     const deleteBtn = document.createElement("button");
     editBtn.textContent = "수정";
     deleteBtn.textContent = "삭제";
-
+    // 지출 내역 나열
     for (const data in expenseData) {
       const dataTh = document.createElement("th");
       dataTh.textContent = expenseData[data];

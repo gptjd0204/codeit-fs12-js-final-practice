@@ -5,7 +5,7 @@ import { getExpenseList } from "./api.js";
 export async function sortList(category, type) {
   const expenseList = await getExpenseList();
   if (!expenseList) {
-    console.log("목록 조회에 실패했습니다!");
+    console.error("목록 조회에 실패했습니다!");
     return;
   }
 
@@ -54,24 +54,24 @@ export async function sortList(category, type) {
   }
 }
 
-// 카테고리별 필터링
-export async function categoryFilter(category) {
+// 총합 계산
+export async function totalAmount() {
   const expenseList = await getExpenseList();
   if (!expenseList) {
-    console.log("목록 조회에 실패했습니다!");
+    console.error("목록 조회에 실패했습니다!");
     return;
   }
 
   const copiedExpenseList = [...expenseList];
 
-  if (category === "all") {
-    console.log(`카테고리 "전체" 필터 성공 => `, copiedExpenseList);
-    return copiedExpenseList;
-  } else {
-    const categoryFilterList = copiedExpenseList.filter((expense) => {
-      return category === expense.category;
-    });
-    console.log(`카테고리 "${category}" 필터 성공 => `, categoryFilterList);
-    return categoryFilterList;
-  }
+  // error: sum + cur.amount를 사용하였을 때, 제대로 된 값이 나오지 않았는데
+  // 지출 내역을 추가할 때 입력한 금액은 문자열로 저장되어 있기 때문에
+  // Number()를 활용해야 정상적인 값이 나온다.
+  const total = copiedExpenseList.reduce((sum, cur) => {
+    return sum + Number(cur.amount);
+  }, 0);
+
+  console.log("지출 총합 => ", total);
+  // console.log("지출 총합 => ", typeof total);
+  return total;
 }
