@@ -36,7 +36,19 @@
           <span>지출 총합:</span>
           <span id="total-amount">0</span>
         </div>
+      </section>
+
+      <section class="list-section">
         <div class="list-container">
+          <select id="category-filter">
+            <option value="all">전체</option>
+            <option value="식비">식비</option>
+            <option value="교통">교통</option>
+            <option value="쇼핑">쇼핑</option>
+            <option value="문화">문화</option>
+            <option value="기타">기타</option>
+          </select>
+
           <div class="sort-list">
             <span id="recent-sort">최신순</span>
             <span id="old-sort">오래된순</span>
@@ -59,7 +71,6 @@
         </div>
       </section>
     </div>
-    <!-- <script type="module" src="./js/api.js"></script> -->
     <script type="module" src="./js/main.js"></script>
   </body>
 </html>

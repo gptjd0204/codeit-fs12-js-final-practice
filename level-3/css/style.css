@@ -28,9 +28,19 @@ h1 {
   font-weight: 600;
 }
 
-.total-section {
+.list-section {
   width: 100%;
   max-width: 700px;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  gap: 20px;
+}
+
+.total-section {
+  width: 100%;
+  max-width: 600px;
   margin: 50px auto;
   display: flex;
   flex-direction: column;
@@ -63,4 +73,8 @@ h1 {
 
 .sort-list span.active {
   color: rgb(255, 0, 0);
+}
+
+#category-filter {
+  max-width: 100px;
 }

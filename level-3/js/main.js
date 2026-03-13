@@ -1,6 +1,6 @@
 import { createExpense, updateExpense } from "./api.js";
 import { renderExpenseList } from "./render/list.js";
-import { sortList } from "./utils.js";
+import { categoryFilter, sortList } from "./utils.js";
 
 export const expenseForm = document.getElementById("expense-form");
 export const dateInput = document.getElementById("date");
@@ -12,6 +12,15 @@ const recentSortBtn = document.querySelector("#recent-sort");
 const oldSortBtn = document.querySelector("#old-sort");
 const amountDescBtn = document.querySelector("#amount-desc");
 const amountAscBtn = document.querySelector("#amount-asc");
+const categoryFilterSelect = document.querySelector("#category-filter");
+
+// 정렬 버튼 active 초기화
+function activeDefault() {
+  amountAscBtn.classList.remove("active");
+  amountDescBtn.classList.remove("active");
+  recentSortBtn.classList.remove("active");
+  oldSortBtn.classList.remove("active");
+}
 
 // 지출 내역 추가 및 수정 버튼 이벤트 리스너
 expenseForm.addEventListener("submit", function (e) {
@@ -38,44 +47,48 @@ expenseForm.addEventListener("submit", function (e) {
   amountInput.value = "";
 });
 
+// 최신순 정렬 버튼 이벤트 리스너
 recentSortBtn.addEventListener("click", function (e) {
   e.preventDefault();
+  activeDefault();
   this.classList.add("active");
-  oldSortBtn.classList.remove("active");
-  amountAscBtn.classList.remove("active");
-  amountDescBtn.classList.remove("active");
 
-  renderExpenseList(sortList("recent"));
+  renderExpenseList(sortList(categoryFilterSelect.value, "recent"));
 });
 
+// 오래된순 정렬 버튼 이벤트 리스너
 oldSortBtn.addEventListener("click", function (e) {
   e.preventDefault();
+  activeDefault();
   this.classList.add("active");
-  recentSortBtn.classList.remove("active");
-  amountAscBtn.classList.remove("active");
-  amountDescBtn.classList.remove("active");
 
-  renderExpenseList(sortList("old"));
+  renderExpenseList(sortList(categoryFilterSelect.value, "old"));
 });
 
+// 높은금액순 정렬 버튼 이벤트 리스너
 amountDescBtn.addEventListener("click", function (e) {
   e.preventDefault();
+  activeDefault();
   this.classList.add("active");
-  amountAscBtn.classList.remove("active");
-  recentSortBtn.classList.remove("active");
-  oldSortBtn.classList.remove("active");
 
-  renderExpenseList(sortList("amountDesc"));
+  renderExpenseList(sortList(categoryFilterSelect.value, "amountDesc"));
 });
 
+// 낮은금액순 정렬 버튼 이벤트 리스너
 amountAscBtn.addEventListener("click", function (e) {
   e.preventDefault();
+  activeDefault();
   this.classList.add("active");
-  amountDescBtn.classList.remove("active");
-  recentSortBtn.classList.remove("active");
-  oldSortBtn.classList.remove("active");
 
-  renderExpenseList(sortList("amountAsc"));
+  renderExpenseList(sortList(categoryFilterSelect.value, "amountAsc"));
+});
+
+// 카테고리 필터 이벤트 리스너
+categoryFilterSelect.addEventListener("change", function (e) {
+  e.preventDefault();
+  activeDefault();
+
+  renderExpenseList(sortList(this.value));
 });
 
 // 지출 목록 출력
