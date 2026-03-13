@@ -9,6 +9,7 @@ export const categoryInput = document.getElementById("category");
 export const descriptionInput = document.getElementById("description");
 export const amountInput = document.getElementById("amount");
 export const submitBtn = document.getElementById("submit-btn");
+
 const recentSortBtn = document.querySelector("#recent-sort");
 const oldSortBtn = document.querySelector("#old-sort");
 const amountDescBtn = document.querySelector("#amount-desc");

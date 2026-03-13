@@ -36,18 +36,18 @@
       "id": 6
     },
     {
-      "date": "2026-03-15",
-      "category": "교통",
-      "description": "수정 수정",
-      "amount": "1100",
-      "id": 8
-    },
-    {
       "date": "2026-03-08",
       "category": "기타",
       "description": "금",
       "amount": "100000",
       "id": 11
+    },
+    {
+      "date": "2026-03-26",
+      "category": "식비",
+      "description": "11",
+      "amount": "1000000",
+      "id": 12
     }
   ]
 }

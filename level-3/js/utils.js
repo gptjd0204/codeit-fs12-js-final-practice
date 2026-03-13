@@ -62,16 +62,40 @@ export async function totalAmount() {
     return;
   }
 
-  const copiedExpenseList = [...expenseList];
-
-  // error: sum + cur.amount를 사용하였을 때, 제대로 된 값이 나오지 않았는데
+  // error: sum + cur.amount를 사용하였을 때, 제대로 된 값이 나오지 않았다.
   // 지출 내역을 추가할 때 입력한 금액은 문자열로 저장되어 있기 때문에
   // Number()를 활용해야 정상적인 값이 나온다.
-  const total = copiedExpenseList.reduce((sum, cur) => {
+  const total = expenseList.reduce((sum, cur) => {
     return sum + Number(cur.amount);
   }, 0);
 
   console.log("지출 총합 => ", total);
-  // console.log("지출 총합 => ", typeof total);
   return total;
+}
+
+// 카테고리별 총합 계산
+export async function getCategoryAmount() {
+  const expenseList = await getExpenseList();
+  const categories = ["식비", "교통", "쇼핑", "문화", "기타"];
+
+  let allCategoryAmount;
+  categories.forEach((category) => {
+    const categoryFilter = expenseList.filter(
+      (expense) => category === expense.category,
+    );
+
+    const categoryTotal = categoryFilter.reduce((sum, cur) => {
+      return sum + Number(cur.amount);
+    }, 0);
+
+    // []를 사용하면 객체의 key를 인자값으로 설정 가능 (대괄호 표기법)
+    const categoryAmount = {
+      [category]: categoryTotal,
+    };
+
+    allCategoryAmount = { ...allCategoryAmount, ...categoryAmount };
+  });
+
+  console.log("카테고리 총합 계산 완료 => ", allCategoryAmount);
+  return allCategoryAmount;
 }
