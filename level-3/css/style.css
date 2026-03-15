@@ -146,3 +146,48 @@ td {
   font-weight: 600;
   z-index: 200;
 }
+
+/* 에러 / 성공 메세지 Toast 표시 */
+#toast {
+  visibility: hidden; /* 초기 숨김 */
+  min-width: 250px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 16px;
+  position: fixed; /* 화면 고정 */
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+  transform: translateX(-50%);
+}
+
+#toast.show {
+  visibility: visible; /* 보임 */
+  animation:
+    fadein 0.5s,
+    fadeout 0.5s 2.5s; /* 3초 후 숨김 애니메이션 */
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}

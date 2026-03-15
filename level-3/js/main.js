@@ -38,10 +38,8 @@ expenseForm.addEventListener("submit", function (e) {
     const expenseId = submitBtn.dataset.id;
     updateExpense(expenseId, date, category, description, amount);
     submitBtn.classList.remove("patch");
-    console.log("지출 내역 수정 성공!");
   } else {
     createExpense(date, category, description, amount);
-    console.log("지출 내역 추가 성공!");
   }
   dateInput.value = "";
   categoryInput.value = "";

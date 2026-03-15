@@ -12,7 +12,7 @@
       "date": "2024-04-24",
       "category": "쇼핑",
       "description": "아우터 구매",
-      "amount": 89000
+      "amount": "79000"
     },
     {
       "id": 4,
@@ -29,13 +29,6 @@
       "id": 6
     },
     {
-      "date": "2026-03-02",
-      "category": "교통",
-      "description": "11",
-      "amount": "230000",
-      "id": 12
-    },
-    {
       "date": "2026-03-17",
       "category": "교통",
       "description": "22",
@@ -46,7 +39,7 @@
       "date": "2025-07-08",
       "category": "식비",
       "description": "점심 식사",
-      "amount": "12000",
+      "amount": "14000",
       "id": 14
     },
     {
@@ -55,6 +48,13 @@
       "description": "금",
       "amount": "1000000",
       "id": 15
+    },
+    {
+      "date": "2026-03-03",
+      "category": "식비",
+      "description": "저녁 식사",
+      "amount": "15000",
+      "id": 16
     }
   ]
 }

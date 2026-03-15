@@ -52,6 +52,4 @@ export async function renderExpenseList(sort) {
 
     expensesListEl.appendChild(tr);
   });
-
-  console.log("지출 목록 조회 성공 했습니다.");
 }
