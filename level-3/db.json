@@ -55,6 +55,13 @@
       "description": "교통비",
       "amount": "5000",
       "id": 17
+    },
+    {
+      "date": "2026-03-03",
+      "category": "쇼핑",
+      "description": "신발 구매",
+      "amount": "200000",
+      "id": 18
     }
   ]
 }
