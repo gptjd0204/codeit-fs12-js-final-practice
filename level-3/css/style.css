@@ -2,18 +2,20 @@
 
 body {
   font-family: "Gmarket Sans", sans-serif;
+  background-color: #ebebeb;
 }
 
 #container {
-  max-width: 800px;
+  width: 800px;
   margin: 40px auto;
-  padding: 20px;
+  padding: 45px 20px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  gap: 25px;
+  gap: 30px;
+  background-color: #fff;
+  border-radius: 20px;
 }
 
 header {
@@ -28,6 +30,85 @@ h1 {
   font-weight: 600;
 }
 
+h2 {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.6;
+  border-bottom: 1px dashed rgb(158, 158, 158);
+}
+
+#expense-form {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  gap: 10px;
+}
+
+#expense-form div {
+  display: flex;
+  justify-content: space-between;
+}
+
+#expense-form input {
+  font-family: "Gmarket Sans", sans-serif;
+  height: 30px;
+}
+#expense-form #date {
+  width: 140px;
+  text-align: center;
+}
+#expense-form #category {
+  font-family: "Gmarket Sans", sans-serif;
+  text-align: center;
+  width: 145px;
+}
+
+#submit-btn.patch {
+  padding: 10px 24px;
+  font-family: "Gmarket Sans", sans-serif;
+  font-size: 14px;
+  outline: none;
+  color: #fff;
+  border-radius: 40px;
+  background: #5dc8cd;
+  border: 2px solid #5dc8cd;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#submit-btn.patch:hover {
+  background: #fff;
+  color: #5dc8cd;
+}
+
+#submit-btn.patch:active {
+  background: #fff;
+  border-color: #01939a;
+}
+
+#submit-btn {
+  padding: 10px 24px;
+  font-family: "Gmarket Sans", sans-serif;
+  font-size: 14px;
+  outline: none;
+  color: #fff;
+  border-radius: 40px;
+  background: #ffaa40;
+  border: 2px solid #ffaa40;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#submit-btn:hover {
+  background: #fff;
+  color: #ffaa40;
+}
+
+#submit-btn:active {
+  background: #fff;
+  border-color: #ff8e00;
+}
+
 .list-section {
   width: 100%;
   max-width: 700px;
@@ -37,28 +118,45 @@ h1 {
   gap: 20px;
 }
 
-.total-section {
+.total-container {
   width: 100%;
-  max-width: 600px;
   margin: 20px auto;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  align-items: center;
+  gap: 25px;
+  font-size: 24px;
 }
 
-.total-container {
+.total-container div {
   display: flex;
-  justify-content: space-between;
+  gap: 20px;
 }
 
 .list-container {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  gap: 30px;
+}
+
+.list-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-nav span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .sort-list {
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 10px;
   color: rgb(158, 158, 158);
 }
@@ -74,7 +172,11 @@ h1 {
 }
 
 #category-filter {
-  max-width: 100px;
+  font-family: "Gmarket Sans", sans-serif;
+  min-width: 90px;
+  height: 30px;
+  text-align: center;
+  cursor: pointer;
 }
 
 #total-amount {
@@ -89,21 +191,48 @@ h1 {
   gap: 10px;
 }
 
-#category-stats-table {
+.expense-table {
   table-layout: fixed;
   width: 100%;
-  border: 1;
   text-align: center;
 }
 
-#category-stats-table th,
-td {
-  width: 60px;
+.expense-table th {
   height: 30px;
+  font-weight: 600;
 }
-#category-stats-table th {
-  color: rgb(255, 255, 255);
-  background-color: rgb(88, 88, 88);
+
+.expense-table th,
+td {
+  padding: 10px 0;
+  vertical-align: middle;
+  border-bottom: 1px solid rgb(209, 209, 209);
+}
+
+.edit-btn {
+  background: inherit;
+  border: none;
+  box-shadow: none;
+  padding: 0 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.edit-btn:hover {
+  transform: scale(1.3);
+}
+
+.btn-icon {
+  width: 24px;
+  height: 24px;
+}
+
+#category-stats-container {
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
 .category-stats {
@@ -113,7 +242,7 @@ td {
   gap: 8px;
   border-radius: 10px;
   overflow: hidden;
-  background-color: rgb(230, 230, 230);
+  background-color: rgb(243, 243, 243);
 }
 
 .category-stats span {
@@ -141,8 +270,8 @@ td {
 }
 
 .category-name {
-  background-color: rgb(34, 34, 34);
-  color: rgb(231, 231, 231);
+  background-color: #87d37c;
+  color: #fff;
   font-weight: 600;
   z-index: 200;
 }

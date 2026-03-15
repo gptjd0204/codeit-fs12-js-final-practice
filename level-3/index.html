@@ -17,53 +17,65 @@
 
       <section class="input-section">
         <form id="expense-form">
-          <input type="date" id="date" required />
-          <select id="category" required>
-            <option value="">카테고리</option>
-            <option value="식비">식비</option>
-            <option value="교통">교통</option>
-            <option value="쇼핑">쇼핑</option>
-            <option value="문화">문화</option>
-            <option value="기타">기타</option>
-          </select>
+          <div>
+            <input type="date" id="date" required />
+            <select id="category" required>
+              <option value="">카테고리</option>
+              <option value="식비">식비</option>
+              <option value="교통">교통</option>
+              <option value="쇼핑">쇼핑</option>
+              <option value="문화">문화</option>
+              <option value="기타">기타</option>
+            </select>
+          </div>
           <input type="text" id="description" placeholder="설명" required />
           <input type="text" id="amount" placeholder="금액" min="0" required />
           <button type="submit" id="submit-btn">추가</button>
         </form>
       </section>
 
-      <section class="total-section">
-        <div class="total-container">
-          <span>지출 총합:</span>
+      <section class="total-container">
+        <h2>전체 통계</h2>
+        <div>
+          <span class="total-name">지출 총합</span>
           <span id="total-amount">0원</span>
-          <span>평균 지출:</span>
+        </div>
+        <div>
+          <span class="total-name">평균 지출</span>
           <span id="avg-amount">0원</span>
         </div>
       </section>
-      <section id="category-stats-list">
-        <div class="category-stats-index">
-          <span></span>
-          <span>총 합</span>
-          <span>평 균</span>
+
+      <section id="category-stats-container">
+        <h2>카테고리별 통계</h2>
+        <div id="category-stats-list">
+          <div class="category-stats-index">
+            <span></span>
+            <span>총 합</span>
+            <span>평 균</span>
+          </div>
         </div>
       </section>
 
       <section class="list-section">
         <div class="list-container">
-          <select id="category-filter">
-            <option value="all">전체</option>
-            <option value="식비">식비</option>
-            <option value="교통">교통</option>
-            <option value="쇼핑">쇼핑</option>
-            <option value="문화">문화</option>
-            <option value="기타">기타</option>
-          </select>
+          <div class="list-nav">
+            <select id="category-filter">
+              <option value="all">전체</option>
+              <option value="식비">식비</option>
+              <option value="교통">교통</option>
+              <option value="쇼핑">쇼핑</option>
+              <option value="문화">문화</option>
+              <option value="기타">기타</option>
+            </select>
 
-          <div class="sort-list">
-            <span id="recent-sort">최신순</span>
-            <span id="old-sort">오래된순</span>
-            <span id="amount-desc">높은금액순</span>
-            <span id="amount-asc">낮은금액순</span>
+            <div class="sort-list">
+              <span id="recent-sort">최신순</span>
+              <span id="old-sort">오래된순</span>
+              <p>/</p>
+              <span id="amount-desc">높은금액순</span>
+              <span id="amount-asc">낮은금액순</span>
+            </div>
           </div>
           <table class="expense-table">
             <thead>
@@ -72,8 +84,7 @@
                 <th>카테고리</th>
                 <th>설명</th>
                 <th>금액</th>
-                <th>수정</th>
-                <th>삭제</th>
+                <th class="btn-th"></th>
               </tr>
             </thead>
             <tbody id="expenses-list"></tbody>

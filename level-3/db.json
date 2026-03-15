@@ -29,13 +29,6 @@
       "id": 6
     },
     {
-      "date": "2026-03-17",
-      "category": "교통",
-      "description": "22",
-      "amount": "1000",
-      "id": 13
-    },
-    {
       "date": "2025-07-08",
       "category": "식비",
       "description": "점심 식사",
@@ -50,11 +43,18 @@
       "id": 15
     },
     {
-      "date": "2026-03-03",
-      "category": "식비",
-      "description": "저녁 식사",
-      "amount": "15000",
+      "date": "2026-03-02",
+      "category": "교통",
+      "description": "교통비",
+      "amount": "6000",
       "id": 16
+    },
+    {
+      "date": "2026-03-13",
+      "category": "교통",
+      "description": "교통비",
+      "amount": "5000",
+      "id": 17
     }
   ]
 }
