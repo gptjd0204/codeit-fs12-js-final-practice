@@ -99,3 +99,32 @@ export async function getCategoryAmount() {
   console.log("카테고리 총합 계산 완료 => ", allCategoryAmount);
   return allCategoryAmount;
 }
+
+// 평균 지출 계산
+export async function getAvgAmount() {
+  const expenseList = await getExpenseList();
+  const totalAmount = await getTotalAmount();
+
+  console.log(
+    "평균 지출 계산 완료 => ",
+    (totalAmount / expenseList.length).toFixed(0),
+  );
+  return (totalAmount / expenseList.length).toFixed(0);
+}
+
+// 카테고리별 평균 지출 계산
+export async function getCategoryAvgAmount(category) {
+  const expenseList = await getExpenseList();
+  const categoryAmount = await getCategoryAmount();
+
+  const categoryFilter = expenseList.filter(
+    (expense) => category === expense.category,
+  );
+
+  const categoryTotal = categoryAmount[category];
+  console.log(
+    "카테고리 평균 지출 계산 완료 => ",
+    (categoryTotal / categoryFilter.length).toFixed(0),
+  );
+  return (categoryTotal / categoryFilter.length).toFixed(0);
+}

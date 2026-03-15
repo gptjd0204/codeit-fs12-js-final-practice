@@ -34,18 +34,16 @@ h1 {
   margin: 50px auto;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   gap: 20px;
 }
 
 .total-section {
   width: 100%;
   max-width: 600px;
-  margin: 50px auto;
+  margin: 20px auto;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  gap: 20px;
+  gap: 30px;
 }
 
 .total-container {
@@ -82,4 +80,69 @@ h1 {
 #total-amount {
   font-weight: 500;
   color: rgb(216, 23, 23);
+}
+
+#category-stats-list {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 10px;
+}
+
+#category-stats-table {
+  table-layout: fixed;
+  width: 100%;
+  border: 1;
+  text-align: center;
+}
+
+#category-stats-table th,
+td {
+  width: 60px;
+  height: 30px;
+}
+#category-stats-table th {
+  color: rgb(255, 255, 255);
+  background-color: rgb(88, 88, 88);
+}
+
+.category-stats {
+  display: flex;
+  flex-direction: column;
+  min-width: 120px;
+  gap: 8px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: rgb(230, 230, 230);
+}
+
+.category-stats span {
+  display: flex;
+  height: 30px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.category-stats-index {
+  display: flex;
+  flex-direction: column;
+  min-width: 50px;
+  gap: 8px;
+}
+
+.category-stats-index span {
+  display: flex;
+  height: 30px;
+  width: 100%;
+  font-weight: 600;
+  justify-content: center;
+  align-items: center;
+}
+
+.category-name {
+  background-color: rgb(34, 34, 34);
+  color: rgb(231, 231, 231);
+  font-weight: 600;
+  z-index: 200;
 }
